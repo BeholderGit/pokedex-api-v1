@@ -1,6 +1,7 @@
 const limit = 151;
 const url = `https://pokeapi.co/api/v2/pokemon?limit=${limit}`;
 const pokemon_container = document.getElementsByClassName("pokemon-container");
+
 const colors = {
     fire: "#FDDFDF",
     grass: "#DEFDE0",
@@ -9,7 +10,7 @@ const colors = {
     ground: "#F4E7DA",
     rock: "#D5D5D4",
     fairy: "#FCEAFF",
-    posion: "#98D7A5",
+    poison: "#98D7A5",
     bug: "#F8D5A3",
     dragon: "#97B3E6",
     psychic: "#EAEDA1",
@@ -47,6 +48,12 @@ const createPokemonCard = (pokemon) => {
     }
     const pokemon_div = document.createElement("div");
     pokemon_div.classList.add("pokemon-cards");
+    const type_color = pokemon.types[0].type.name;
+    const type = capitalizeFirstLetter(pokemon.types[0].type.name);
+    pokemon_div.setAttribute(
+        "style",
+        `background-color: ${colors[type_color]}`
+    );
     pokemon_container[0].appendChild(pokemon_div);
     const pokemon_img = document.createElement("img");
     pokemon_img.classList.add("img-container");
@@ -65,13 +72,15 @@ const createPokemonCard = (pokemon) => {
     pokemon_div_info.appendChild(span);
     const name = document.createElement("h3");
     name.classList.add("name");
-    name.insertAdjacentText("beforeend", pokemon.name);
+    name.insertAdjacentText("beforeend", capitalizeFirstLetter(pokemon.name));
     pokemon_div_info.appendChild(name);
     const small = document.createElement("small");
     small.classList.add("type");
-    const type = pokemon.types[0].type.name;
-    small.insertAdjacentText("beforeend", `type: ${type}`);
+    small.insertAdjacentText("beforeend", `Type : ${type}`);
     pokemon_div_info.appendChild(small);
 };
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 fetchPokemons();
