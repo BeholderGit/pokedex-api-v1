@@ -63,43 +63,15 @@ const createPokemonCard = (pokemon) => {
     span.classList.add("number");
     span.insertAdjacentText("beforeend", `#${number}`);
     pokemon_div_info.appendChild(span);
-    const name = document.createElement("h3")
-    name.classList.add("name")
+    const name = document.createElement("h3");
+    name.classList.add("name");
     name.insertAdjacentText("beforeend", pokemon.name);
-    pokemon_div_info.appendChild(name)
-    const small = document.createElement("small")
-    small.classList.add("type")
+    pokemon_div_info.appendChild(name);
+    const small = document.createElement("small");
+    small.classList.add("type");
     const type = pokemon.types[0].type.name;
     small.insertAdjacentText("beforeend", `type: ${type}`);
-    pokemon_div_info.appendChild(small)
+    pokemon_div_info.appendChild(small);
 };
-
-/* 
-            <div class="pokemon-cards">
-                <div class="img-container">
-                    <img
-                        src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"
-                        alt=""
-                    />
-                </div>
-                <div class="info">
-                    <span class="number">#001</span>
-                    <h3 class="name">Bulbasaur</h3>
-                    <small class="type">type: <span>grass</span></small>
-                </div>
-            </div>
-    */
-
-/*
-const createPokemonCard = async (pokemon) => {
-    const pokemons = await fetch(pokemon.url);
-    const pokemonData = await pokemons.json();
-    console.log(pokemonData);
-    const pokemon_div = document.createElement("div");
-    console.log(pokemon_div);
-    pokemon_div.classList.add("pokemon");
-    pokemon_container.appendChild(pokemon_div);
-};
-*/
 
 fetchPokemons();
