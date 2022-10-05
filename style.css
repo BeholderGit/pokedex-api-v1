@@ -25,7 +25,10 @@ body {
 h1 {
     letter-spacing: 3px;
 }
-
+.logo {
+    margin: 15px 0px 10px 0px;
+    width: 18em;
+}
 .pokemon-container {
     display: flex;
     flex-wrap: wrap;
