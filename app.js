@@ -20,6 +20,19 @@ const colors = {
 };
 
 const fetchPokemons = async () => {
+    for (let id = 1; id <= limit; id++) {
+        await getPokemon(id);
+    }
+};
+
+const getPokemon = async (id) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+    const pokemon = await (await fetch(url)).json();
+    createPokemonCard(pokemon);
+};
+
+/*
+const fetchPokemons = async () => {
     try {
         const res = await fetch(url);
         const data = await res.json();
@@ -38,6 +51,7 @@ const getPokemon = async (pokemon) => {
         console.error(err);
     }
 };
+*/
 
 const createPokemonCard = (pokemon) => {
     let number = pokemon.id;
