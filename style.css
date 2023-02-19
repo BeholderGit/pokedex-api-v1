@@ -25,10 +25,12 @@ body {
 h1 {
     letter-spacing: 3px;
 }
+
 .logo {
     margin: 15px 0px 10px 0px;
     width: 18em;
 }
+
 .pokemon-container {
     display: flex;
     flex-wrap: wrap;
@@ -70,6 +72,7 @@ h1 {
     border-radius: 10px;
     font-size: 0.8em;
 }
+
 .pokemon-cards .info .name {
     margin: 15px 0 7px;
     letter-spacing: 1px;
